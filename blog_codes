@@ -1,0 +1,87 @@
+import "package:flutter/material.dart";
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  // stl+enter
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      title: "Blog",
+      home: Scaffolding(),
+    );
+  }
+}
+
+class Scaffolding extends StatelessWidget {
+  const Scaffolding({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Blog"),
+        backgroundColor: Colors.green,
+      ),
+      body: MainFrame(),
+    );
+  }
+}
+
+class MainFrame extends StatefulWidget {
+  //stf+enter
+  const MainFrame({super.key});
+
+  @override
+  State<MainFrame> createState() => _MainFrameState();
+}
+
+class _MainFrameState extends State<MainFrame> {
+  String blogPost = "Welcome";
+
+  showFebruary() {
+    setState(() {
+      blogPost = "dufashkjdsjdjskfa";
+    });
+  }
+
+  showMarch() {
+    setState(() {
+      blogPost = "fejrijofskfdjds";
+    });
+  }
+
+  showApril() {
+    setState(() {
+      blogPost = "hfeuihdnadbsjkdhbhdkfa";
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(blogPost),
+          ElevatedButton(
+            onPressed: showFebruary,
+            child: const Text("show february"),
+          ),
+          ElevatedButton(
+            onPressed: showMarch,
+            child: const Text("show march"),
+          ),
+          ElevatedButton(
+            onPressed: showApril,
+            child: const Text("show april"),
+          )
+        ],
+      ),
+    );
+  }
+}
